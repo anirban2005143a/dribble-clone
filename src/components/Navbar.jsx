@@ -1,10 +1,10 @@
-import { LucideMenu, Menu, Search } from "lucide-react";
+import { LucideMenu, Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 import CustomDropdown from "./ui/CustomDropdown";
 
 export const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-white">
+    <nav className="sticky top-0 z-20 bg-white">
       <div className=" w-full flex items-center justify-between px-4 py-4 max-w-6xl mx-auto ">
         {/* Left Section */}
         <div className=" flex lg:flex-row flex-col lg:items-center  md:gap-4 gap-0 w-full">
@@ -66,6 +66,7 @@ export const Logo = () => {
 
 const SearchBar = () => {
   const [value, setvalue] = useState("Shots");
+  const [searchContent, setsearchContent] = useState("");
   return (
     <div
       className="flex items-center border border-2 border-gray-100 hover:border-violet-100 bg-gray-100 hover:bg-white rounded-full px-1.5 py-1.5
@@ -73,9 +74,25 @@ const SearchBar = () => {
     >
       <input
         type="text"
+        value={searchContent}
+        onChange={(e) => {
+          e.preventDefault();
+          setsearchContent(e.target.value);
+        }}
         placeholder="What are you looking for?"
         className="bg-transparent outline-none px-4.5 flex-1 w-[90%] text-[15px] text-gray-600 placeholder:text-gray-600"
       />
+      {searchContent && (
+        <X
+          size={15}
+          className=" font-light text-gray-500 cursor-pointer hover:text-gray-700"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setsearchContent("");
+          }}
+        />
+      )}
       <CustomDropdown
         options={[
           {

@@ -19,10 +19,12 @@ import { TextSection } from "../components/blog/TextSection";
 import { ShowImage } from "../components/blog/ShowImage";
 import { StackedCard } from "../components/ui/StackedCard";
 import { InfiniteStackedCarousel } from "../components/InfiniteStackedCarousel";
+import { IconStack } from "../components/IconStack";
 
 export const Home = () => {
   return (
-    <div className="">
+    <>
+    <IconStack className={" fixed z-50 top-1/2 right-0 -translate-x-1/2 sm:block hidden"}/>
       <Header title={title} user={user} />
       <section id="content" className=" pb-8 mb-3">
         <TextSection html={textHtml1} />
@@ -71,16 +73,18 @@ export const Home = () => {
       <MoreBlog name={user.name} data={moreBlog} />
 
       <InfiniteStackedCarousel items={footerCarousel} />
-    </div>
+    </>
   );
 };
 
 const MoreBlog = ({ name, data }) => {
   return (
-    <div className="max-w-237.5 mx-auto ">
+    <div className="max-w-237.5 mx-auto px-4">
       <div className=" flex justify-between items-center">
         <h3 className="font-semibold text-base mb-4">More by {name}</h3>
-        <Link className="font-light text-base text-gray-800">View profile</Link>
+        <Link className="font-normal text-base text-gray-950 hover:text-gray-700 transition">
+          View profile
+        </Link>
       </div>
 
       <div className=" grid md:grid-cols-2 grid-cols-1 gap-10">

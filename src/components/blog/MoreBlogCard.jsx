@@ -3,7 +3,7 @@ import { Bookmark, Heart } from "lucide-react";
 export const MoreBlogCard = ({ Imgurl, title, desc }) => {
   return (
     <div className="flex col-span-1 items-center justify-center">
-      <div className="group  z-0 relative rounded-md w-full h-[350px] overflow-hidden cursor-pointer">
+      <div className="group  z-0 relative rounded-md w-full sm:h-[350px] h-[200px] overflow-hidden cursor-pointer">
         {/* Background Image */}
         <div
           className="absolute z-0 w-full h-full bg-red-800 bg-cover bg-center transition-transform duration-500 "
